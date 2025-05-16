@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('CodeScan') {
             steps{
-                
+                sh 'trivy fs . -o result.html'
+                sh 'cat result.html'
         
             }
         }
@@ -27,5 +28,4 @@ stage('PushImage') {
                 sh 'docker push 345594563748.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:latest'
             }
         }
-}
-}
+    }
