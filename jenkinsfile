@@ -34,8 +34,7 @@ stage('dockerImageTag'){
 }
 stage('PushImage'){
             steps{
-                sh 'docker push $IMAGE_ECR_REP0:latest'
-                sh 'docker push $IMAGE_ECR_REPO:v1.$BUILD_NUMBER'
+                sh 'docker push 345594563748.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:latest'
             }
         }
     }
