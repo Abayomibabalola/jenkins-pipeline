@@ -10,13 +10,13 @@ pipeline {
         stage('CodeScan'){
             steps{
                 sh 'trivy fs . -o result.html'
-                sh 'cat result.html'
+                
         
             }
         }
         stage('dockerLogin'){
             steps{
-                sh "aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO"
+                sh "aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REP0"
             }
         }
     stage('dockerImageBuild'){
