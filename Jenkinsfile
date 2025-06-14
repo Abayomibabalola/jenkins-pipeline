@@ -1,22 +1,24 @@
 pipeline {
+    
+    agent any
+    
+    stages{
+        stage('Clone'){
+            steps{
+                sh 'echo "clone"'
+            }
+        }
 
-     agent any {
-        stages{
-            stage('clone'){
-                steps{
-                    sh 'echo "clone"'
-                }
+        stage('Test'){
+            steps{
+                sh 'echo "test"'
             }
         }
-            stage('test'){
-                steps{
-                    sh 'echo "test"'
+
+        stage('Create File'){
+            steps{
+                sh 'touch text-${BUILD_NUMBER}.txt'
             }
         }
-           stage('createfile'){
-                steps{
-                     sh 'touch text-${BUILD_NUMBER}.txt'
-            }
-           } 
-             }
+    }
 }
