@@ -3,23 +3,23 @@ pipeline {
     agent any
     
     stages{
-        stage('Clone'){
+        stage('CodeScan'){
             steps{
-                sh 'echo "clone"'
-                sh 'uname -r'
-                sh 'nproc'
+                sh 'trivy --version'
+                
+                
             }
         }
 
-        stage('Test'){
+        stage('dockerImageBuild'){
             steps{
-                sh 'echo "test"'
+                sh 'docker -v'
             }
         }
 
-        stage('Create File'){
+        stage('PushImage'){
             steps{
-                sh 'touch text-${BUILD_NUMBER}.txt'
+                sh 'docker ps'
             }
         }
     }
