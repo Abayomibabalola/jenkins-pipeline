@@ -6,6 +6,7 @@ pipeline {
         stage('Clone'){
             steps{
                 sh 'echo "clone"'
+                sh 'uname -r'
             }
         }
 
